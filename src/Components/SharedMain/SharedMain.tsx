@@ -1,14 +1,19 @@
-import React from "react";
-import Cards from "../Cards/Cards";
-import styles from "./SharedMain.module.css";
-import { useSharedData } from "../../api/parseData";
-import FolderInfo from "../FolderInfo/FolderInfo";
-import Image from "next/image";
+import React from 'react';
+import Cards from '../Cards/Cards';
+import styles from './SharedMain.module.css';
+import { useSharedData } from '@/api/parseData';
+import FolderInfo from '../FolderInfo/FolderInfo';
+import Image from 'next/image';
+import { SharedMainProps } from '@/types/interface';
+import { useFolderInfo } from '@/api/parseData';
 
-function SharedMain() {
+const SharedMain: React.FC<SharedMainProps> = ({ folderId }) => {
+    const folderData = useFolderInfo(folderId);
+    const user_id = folderData.user_id;
+
     return (
         <main className={styles.main}>
-            <FolderInfo />
+            <FolderInfo folderId={folderId} userId={user_id} />
             <section className={styles.section}>
                 <div className={styles.search_div}>
                     <Image src='/assets/Search.svg' width={15} height={15} alt='search_icon' />
@@ -17,10 +22,10 @@ function SharedMain() {
                         placeholder='링크를 검색해보세요'
                     />
                 </div>
-                <Cards items={useSharedData()} />
+                <Cards items={useSharedData()} />`
             </section>
         </main>
     );
-}
+};
 
 export default SharedMain;

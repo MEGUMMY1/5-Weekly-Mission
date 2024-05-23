@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "../styles/index.module.css";
-import Link from "next/link";
-import Header from "../Components/Header/Header";
-import Footer from "../Components/Footer/Footer";
+import React from 'react';
+import styles from '../styles/index.module.css';
+import Link from 'next/link';
+import Header from '../Components/Header/Header';
+import Footer from '../Components/Footer/Footer';
 
 const Index = () => {
     return (
@@ -14,7 +14,7 @@ const Index = () => {
                     <Link href='/folder'>
                         <button className={`${styles.button} button`}>Folder</button>
                     </Link>
-                    <Link href='/shared'>
+                    <Link href='/shared/24'>
                         <button className={`${styles.button} button`}>Shared</button>
                     </Link>
                 </div>
