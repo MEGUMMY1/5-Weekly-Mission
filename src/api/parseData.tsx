@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useFetch } from '../hooks/useFetch';
-import { BASE_URL } from '../constants/baseURL';
-import { FolderInfo } from '@/types/interface';
+import { useState, useEffect } from "react";
+import { useFetch } from "../hooks/useFetch";
+import { BASE_URL } from "../constants/baseURL";
+import { FolderInfo } from "@/types/interface";
 
 export interface Card {
     id: string;
@@ -43,20 +43,22 @@ export function useFolderInfo(folderId: string) {
     return data;
 }
 
-export function useSharedData() {
+export function useSharedData(userId: number | null, folderId: string) {
     const [data, setData] = useState<Card[]>([]);
 
-    const folderData = useFetch(`${BASE_URL}sample/folder`);
+    const folderData = useFetch(
+        userId ? `${BASE_URL}users/${userId}/links?folderId=${folderId}` : ""
+    );
 
     useEffect(() => {
-        if (folderData && folderData.folder) {
-            const parsedData = folderData.folder.links.map((link: Card) => ({
+        if (folderData && folderData.data) {
+            const parsedData = folderData.data.map((link: any) => ({
                 id: link.id,
                 created_at: link.created_at,
                 url: link.url,
-                title: link.title || '',
-                description: link.description || '',
-                image_source: link.imageSource || '',
+                title: link.title || "",
+                description: link.description || "",
+                image_source: link.image_source || "",
                 showDot: false,
                 showStar: false,
             }));
@@ -79,9 +81,9 @@ export function useFolderDataAll() {
                 id: link.id,
                 created_at: link.created_at,
                 url: link.url,
-                title: link.title || '',
-                description: link.description || '',
-                image_source: link.image_source || '',
+                title: link.title || "",
+                description: link.description || "",
+                image_source: link.image_source || "",
                 showDot: true,
                 showStar: true,
             }));
@@ -104,9 +106,9 @@ export function useFolderData(folderId: string) {
                 id: folder.id,
                 created_at: folder.created_at,
                 url: folder.url,
-                title: folder.title || '',
-                description: folder.description || '',
-                image_source: folder.image_source || '',
+                title: folder.title || "",
+                description: folder.description || "",
+                image_source: folder.image_source || "",
                 showDot: true,
                 showStar: true,
                 count: folder.link?.count || 0,

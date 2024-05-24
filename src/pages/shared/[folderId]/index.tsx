@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
-import Main from '@/Components/SharedMain/SharedMain';
-import Header from '@/Components/Header/Header';
-import Footer from '@/Components/Footer/Footer';
-import { useRouter } from 'next/router';
-import axios from '@/lib/axios';
+import React from "react";
+import Main from "@/Components/SharedMain/SharedMain";
+import Header from "@/Components/Header/Header";
+import Footer from "@/Components/Footer/Footer";
+import { useRouter } from "next/router";
 
 function Shared() {
     const router = useRouter();
-    const folderId = router.query['folderId'];
-    const [data, setData] = useState([]);
+    const { folderId } = router.query;
 
-    async function getFolderInfo() {
-        const res = await axios.get('folders/');
-        const data = res.data ?? [];
-        setData(data);
-    }
+    // folderId가 문자열 | undefined일 경우 첫번째 문자열을 선택
+    const folderIdString =
+        typeof folderId === "string" ? folderId : Array.isArray(folderId) ? folderId[0] : undefined;
 
     return (
         <>
             <Header />
-            <Main folderId={folderId} />
+            <Main folderId={folderIdString} />
             <Footer />
         </>
     );
