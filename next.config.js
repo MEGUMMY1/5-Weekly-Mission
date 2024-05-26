@@ -22,6 +22,7 @@ module.exports = {
             "testing-library.com",
             "static.cdninstagram.com",
             "cdn-icons-png.flaticon.com",
+            "avatars.githubusercontent.com",
         ],
     },
 };
