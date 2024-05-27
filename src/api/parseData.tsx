@@ -43,7 +43,6 @@ export function useFolderInfo(folderId: string) {
 
     return data;
 }
-
 export function useSharedData(userId: number | null, folderId: string) {
     const [data, setData] = useState<Card[]>([]);
 

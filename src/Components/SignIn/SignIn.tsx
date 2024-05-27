@@ -12,7 +12,6 @@ function SignIn() {
     const [password, setPassword] = useState("");
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
     const router = useRouter();
 
     useEffect(() => {
