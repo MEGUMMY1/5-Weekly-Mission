@@ -168,7 +168,7 @@ function SignUp() {
                         </Link>
                         <Link href='https://www.kakaocorp.com/page/'>
                             <Image
-                                src='/assets/kakaoLogin.svg'
+                                src='/assets/kakaologin.svg'
                                 width={42}
                                 height={42}
                                 alt='kakao_login_icon'
