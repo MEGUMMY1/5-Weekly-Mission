@@ -14,7 +14,7 @@ interface ModalProps {
     btnText?: string;
     btnColor?: "submit" | "delete";
     share?: boolean;
-    folderId?: string;
+    folderId?: string | null;
     onClose: () => void;
     onSubmit?: (value: string) => void;
 }
