@@ -26,7 +26,7 @@ interface Props {
 function FolderMain({ folderId }: Props) {
     const [activeButton, setActiveButton] = useState<string>(ALL_FOLDERS);
     const [activeButtonId, setActiveButtonId] = useState<string | null>(folderId || null);
-    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [searchTerm, setSearchTerm] = useState("");
     const [modalType, setModalType] = useState<ModalType>(null);
 
     const userData = useUserData();
