@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Main from "@/Components/FolderMain/FolderMain";
 import Header from "@/Components/Header/Header";
 import Footer from "@/Components/Footer/Footer";
-import { useUserData } from "@/api/parseData";
 
 function Folder() {
     const router = useRouter();
