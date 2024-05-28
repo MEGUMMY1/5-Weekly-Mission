@@ -35,7 +35,7 @@ const Modal: React.FC<ModalProps> = ({
     const [inputValue, setInputValue] = useState("");
     const folderList = useFetch(`${BASE_URL}users/1/folders`);
     const [isError, setIsError] = useState(false);
-    const url = `${DEPLOY_URL}shared?user=1&folder=${folderId}`;
+    const url = `${DEPLOY_URL}shared/${folderId}`;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
