@@ -7,6 +7,11 @@ import { useFetchUser } from "@/hooks/useUser";
 const Header = () => {
     const { data, loading, error } = useFetchUser();
 
+    const handleLogout = () => {
+        localStorage.removeItem("accessToken");
+        window.location.reload();
+    };
+
     return (
         <header className={styles.navbar}>
             <Link href='/' className={styles.logo} tabIndex={0}>
@@ -24,6 +29,9 @@ const Header = () => {
                         className={styles.profile_img}
                     />
                     <span className={styles.email}>{data.email}</span>
+                    <button onClick={handleLogout} className={styles.login_button}>
+                        로그아웃
+                    </button>
                 </div>
             ) : error ? (
                 <p>{error}</p>
