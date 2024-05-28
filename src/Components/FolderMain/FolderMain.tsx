@@ -46,10 +46,10 @@ function FolderMain({ folderId }: Props) {
     const folders = useUserFolders(userId);
     const allFolderData = useFolderDataAll(userId);
     const folderData = useFolderData(userId, activeButtonId);
-
     const handleFolderClick = (folderId: string, folderName: string) => {
         setActiveButton(folderName);
         setActiveButtonId(folderId);
+
         if (folderId) {
             router.push(`/folder/${folderId}`);
         } else {
